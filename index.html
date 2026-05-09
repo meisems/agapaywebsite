@@ -1546,6 +1546,57 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
+<!-- SCROLL TO TOP BUTTON -->
+<button id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<style>
+#scroll-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: var(--green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(13,74,38,.28);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .35s ease, transform .35s ease, background .2s;
+  pointer-events: none;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: var(--green-dark);
+}
+#scroll-top-btn svg {
+  width: 20px;
+  height: 20px;
+}
+</style>
+
+<script>
+(function(){
+  var btn = document.getElementById('scroll-top-btn');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 400) { btn.classList.add('visible'); }
+    else { btn.classList.remove('visible'); }
+  }, { passive: true });
+})();
+</script>
+
 <!-- FLOATING INBOX BUTTON -->
 <button id="inbox-fab" class="inbox-fab" onclick="openInbox()" style="display:none;">
   📥 Inquiries <span id="inbox-fab-badge" class="inbox-badge">0</span>
