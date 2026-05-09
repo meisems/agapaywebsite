@@ -420,6 +420,38 @@ footer{
 .mobile-menu a:hover{background:var(--green-pale);color:var(--green);}
 .mobile-menu .nav-book{text-align:center;background:var(--green);color:#fff;margin-top:.5rem;}
 
+/* ── TABLET BREAKPOINT (iPad, Android tablets) ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  section, nav, footer { padding-left: 2rem !important; padding-right: 2rem !important; }
+  .topbar { padding: .45rem 2rem; }
+  .accred-strip { padding: 1.5rem 2rem; gap: 2rem; }
+
+  /* Hero: side-by-side but smaller */
+  .hero { padding: 4rem 2rem !important; }
+  .hero h1 { font-size: 3rem !important; }
+  .hero-right { width: 46% !important; }
+
+  /* Grids: 2 columns on tablet */
+  .svc-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .svc-card[style*="grid-column"] { grid-column: span 2 !important; }
+  .why-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+  .about-inner, .patient-inner, .contact-inner { grid-template-columns: 1fr !important; gap: 3rem !important; }
+  .eqa-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .team-leaders { grid-template-columns: repeat(3, 1fr) !important; }
+  .team-heads   { grid-template-columns: repeat(3, 1fr) !important; }
+  .team-rest    { grid-template-columns: repeat(3, 1fr) !important; }
+  .footer-top   { grid-template-columns: repeat(2, 1fr) !important; gap: 2rem !important; }
+
+  /* Nav: keep horizontal on tablet */
+  nav { padding: .8rem 2rem !important; flex-direction: row !important; }
+  .nav-links { display: flex !important; }
+  .nav-book.desktop-only { display: block !important; }
+  .hamburger { display: none !important; }
+
+  /* Tagstrip: 2 rows wrap */
+  .tagstrip { flex-wrap: wrap !important; gap: .8rem 2rem !important; padding: 1rem 2rem !important; }
+}
+
 /* ── REVEAL ── */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:none;}
@@ -459,10 +491,48 @@ footer{
   .tagstrip { flex-direction: column !important; gap: .7rem !important; padding: 1.2rem 1.2rem !important; text-align:center; }
   .ts-item { justify-content: center !important; }
 
-  /* Hero text readable */
-  .hero h1 { font-size: 2.3rem !important; }
-  .hero-ctas { justify-content: center; }
-  .hero-content { text-align: center; }
+  /* Hero — full center stack */
+  .hero {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 3rem 1.4rem 2.5rem !important;
+  }
+  .hero-content {
+    max-width: 100% !important;
+    text-align: center !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+  }
+  .hero h1 { font-size: 2.3rem !important; line-height: 1.15 !important; }
+  .hero p  { text-align: center !important; max-width: 100% !important; }
+  .hero-tagline { align-self: center !important; }
+  .hero-ctas {
+    justify-content: center !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100%;
+    gap: .8rem !important;
+  }
+  .btn-white, .btn-outline-white {
+    width: 100% !important;
+    max-width: 320px !important;
+    text-align: center !important;
+    display: block !important;
+  }
+  .hero-right {
+    position: static !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  .hero-stats-box {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
 
   /* Team: 2 cols on mobile for heads/rest */
   .team-heads { grid-template-columns: repeat(2,1fr) !important; }
@@ -480,12 +550,28 @@ footer{
   /* TAT items */
   .tat-items { grid-template-columns: 1fr 1fr !important; }
 
-  /* Hamburger show */
+  /* Hamburger & nav centering */
   .hamburger { display:flex !important; }
   .nav-links  { display:none !important; }
   .nav-book.desktop-only { display:none !important; }
-  nav { flex-wrap:wrap; }
-  .nav-logo { flex:1; }
+  nav {
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  .nav-logo { flex:1; text-align:center; }
+
+  /* Center all section headings */
+  .sec-tag, h2.sec-title, .sec-sub {
+    text-align: center !important;
+  }
+  .services-hdr {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .sec-sub { max-width: 100% !important; }
+  .mvp-card { text-align: left; } /* keep cards left-aligned for readability */
 
   /* 1. Reset Spacing */
   section, nav, footer, .tagstrip {
