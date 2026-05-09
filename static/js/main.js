@@ -1,10 +1,16 @@
+// Test Menu Tab Switcher
+function switchTab(btn, id) {
+  document.querySelectorAll('.t-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.t-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-' + id).classList.add('active');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Lively Scroll Animations (Intersection Observer)
-    // This watches for elements with the 'reveal' class and animates them when they enter the screen
     const reveals = document.querySelectorAll('.reveal');
-    
     const revealOptions = {
-        threshold: 0.15, // Triggers when 15% of the element is visible
+        threshold: 0.15,
         rootMargin: "0px 0px -50px 0px" 
     };
 
@@ -12,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target); // Stop observing once revealed
+            observer.unobserve(entry.target); 
         });
     }, revealOptions);
 
