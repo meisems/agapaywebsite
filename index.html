@@ -231,16 +231,34 @@ h2.sec-title em{font-style:italic;color:var(--green);}
 
 /* ── TEST MENU ── */
 .tests-bg{background:var(--off);}
-.test-nav {display: flex; width: 100%; justify-content: space-between; border-bottom: 2px solid var(--green-pale);
+.test-nav {
+  display: flex;
+  width: 100%;
+  border-bottom: 2px solid var(--green-pale);
+  margin-bottom: 2rem;
 }
-.t-tab{
-  padding:.7rem 1.4rem;font-size:.8rem;font-weight:500;color:var(--txt2);
-  cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;
-  transition:all .2s;background:none;border-top:none;border-left:none;border-right:none;
-  white-space:nowrap;flex: 1;text-align: center;
+
+.t-tab {
+  flex: 1; /* This forces them to share all available width */
+  text-align: center;
+  padding: .7rem 0.5rem;
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--txt2);
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all .2s;
+  white-space: nowrap;
 }
-.t-tab:hover{color:var(--green);}
-.t-tab.active{color:var(--green);border-bottom-color:var(--green);font-weight:600;}
+
+.t-tab.active {
+  color: var(--green);
+  border-bottom-color: var(--green);
+  font-weight: 600;
+}
 .t-panels{padding-top:1.5rem;}
 .t-panel{display:none;}
 .t-panel.active{display:block;}
