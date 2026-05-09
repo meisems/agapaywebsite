@@ -453,6 +453,99 @@ footer{
   border-radius: 10px;
   overflow: hidden;
 }
+
+/* ── MOBILE RESPONSIVENESS ── */
+@media (max-width: 768px) {
+  /* 1. Reduce Global Padding */
+  section, nav, .topbar, footer, .tagstrip {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  /* 2. Fix Navigation */
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1.5rem !important;
+  }
+  .nav-links {
+    display: none; /* Usually hidden on mobile, or you can keep them stacked */
+  }
+  .topbar {
+    display: none; /* Hiding topbar on mobile saves space */
+  }
+
+  /* 3. Hero Section Stacking */
+  .hero {
+    padding: 3rem 1.5rem;
+    min-height: auto;
+    text-align: center;
+  }
+  .hero-content {
+    max-width: 100%;
+  }
+  .hero-ctas {
+    justify-content: center;
+  }
+  .hero-right {
+    position: static;
+    width: 100%;
+    margin-top: 3rem;
+  }
+
+  /* 4. Grids to Single Column */
+  .svc-grid, 
+  .why-grid, 
+  .about-inner, 
+  .patient-inner, 
+  .contact-inner,
+  .eqa-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* 5. Team Section: 2 Columns on Mobile */
+  .team-leaders, 
+  .team-heads, 
+  .team-rest {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+  
+  .tcard {
+    width: 100% !important;
+  }
+
+  /* 6. Tabs (Allow horizontal scrolling if too many) */
+  .test-nav {
+    overflow-x: auto;
+    justify-content: flex-start !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .t-tab {
+    flex: 0 0 auto !important;
+    padding: 0.8rem 1.2rem !important;
+  }
+
+  /* 7. Footer Stacking */
+  .footer-top {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+  .footer-brand p {
+    margin: 0 auto;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  /* 8. Fix Form Row */
+  .cf-row {
+    grid-template-columns: 1fr !important;
+  }
+}
 </style>
 </head>
 <body>
