@@ -441,102 +441,142 @@ footer{
 .team-heads { grid-template-columns: repeat(5, 1fr) !important; }
 .team-rest { grid-template-columns: repeat(4, 1fr) !important; }
 
-/* ── FINAL MOBILE REPAIR ── */
+/* ── IMPROVED MOBILE RESPONSIVENESS ── */
 @media (max-width: 768px) {
-  /* 1. Reset Spacing */
-  section, nav, footer, .tagstrip {
+  /* 1. General Spacing */
+  section, nav, .tagstrip, footer {
     padding: 2.5rem 1.2rem !important;
   }
 
-  /* 2. Fix the Accreditation Strip (The part in your photo) */
-  .accred-strip {
-    flex-direction: column !important;
-    padding: 2rem 1.2rem !important;
-    gap: 2rem !important;
-  }
-  .accred-list {
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-  }
-  .acc-sep {
-    display: none !important; /* Hides that vertical line from your photo */
-  }
-  .acc-item {
-    text-align: center !important;
-    width: 100%;
-  }
-
-  /* 3. Fix Quality Policy / About Section */
-  .about-inner, .patient-inner, .why-grid, .contact-inner, .eqa-grid {
-    grid-template-columns: 1fr !important; /* Forces everything to stack */
-    gap: 2rem !important;
-  }
-  .qp-header {
-    flex-direction: column !important;
-    align-items: center;
+  /* 2. Top Bar */
+  .topbar {
+    padding: .6rem 1rem !important;
+    flex-direction: column;
+    gap: 0.6rem;
     text-align: center;
   }
-
-  /* 4. Team Section: 1 Column for maximum clarity */
-  .team-leaders, .team-heads, .team-rest {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-  }
-  .tcard {
-    width: 100% !important;
-    max-width: 320px;
-    margin: 0 auto; /* Centers the cards in the middle of the phone */
+  .tb-left {
+    flex-direction: column;
+    gap: 0.8rem;
   }
 
-  /* 5. Navigation & Hero Fix */
+  /* 3. Navigation - Add Hamburger Menu */
   nav {
-    flex-direction: column !important;
     padding: 1rem !important;
   }
-  .nav-links, .topbar {
-    display: none !important; /* Hide clutter on mobile */
+  .nav-links {
+    display: none !important;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: var(--shadow);
+    padding: 1rem 0;
+    z-index: 999;
   }
+  .nav-links.active {
+    display: flex !important;
+  }
+  .nav-links a {
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* Hamburger Button */
+  .hamburger {
+    display: block !important;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--green-dark);
+  }
+
+  /* 4. Hero */
   .hero {
-    padding: 4rem 1.2rem !important;
+    min-height: 70vh !important;
+    padding: 4rem 1.2rem 3rem !important;
     text-align: center;
-    min-height: auto;
+  }
+  .hero-content {
+    max-width: 100% !important;
+  }
+  .hero h1 {
+    font-size: 2.6rem !important;
   }
   .hero-right {
     position: static !important;
     width: 100% !important;
     margin-top: 2rem;
   }
+  .hero-stats-box {
+    max-width: 100% !important;
+  }
 
-  /* 6. Tabs Menu (Horizontal Swipe) */
+  /* 5. Grids → Stack */
+  .svc-grid,
+  .why-grid,
+  .about-inner,
+  .patient-inner,
+  .contact-inner,
+  .eqa-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* 6. Team Section */
+  .team-leaders,
+  .team-heads,
+  .team-rest {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+  }
+  .tcard {
+    max-width: 100% !important;
+    margin: 0 auto;
+  }
+
+  /* 7. Test Menu Tabs */
   .test-nav {
-    display: flex !important;
     overflow-x: auto !important;
-    justify-content: flex-start !important;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--bdr);
+    flex-wrap: nowrap !important;
+    padding-bottom: 12px;
     -webkit-overflow-scrolling: touch;
   }
   .t-tab {
     flex: 0 0 auto !important;
-    padding: 0.8rem 1.2rem !important;
+    padding: 0.8rem 1.1rem !important;
+    font-size: 0.82rem !important;
+    white-space: nowrap;
   }
 
-  /* 7. Footer Fix */
+  /* 8. Accreditation Strip */
+  .accred-strip {
+    flex-direction: column !important;
+    gap: 1.8rem !important;
+    padding: 2rem 1rem !important;
+  }
+  .accred-list {
+    flex-direction: column !important;
+    gap: 1.2rem !important;
+  }
+  .acc-sep {
+    display: none !important;
+  }
+
+  /* 9. Footer */
   .footer-top {
     grid-template-columns: 1fr !important;
     text-align: center;
-    gap: 2.5rem !important;
+    gap: 2rem;
   }
-  .footer-brand p {
-    margin: 0 auto;
-  }
-  .footer-bottom {
-    flex-direction: column !important;
-    text-align: center;
-    gap: 1.2rem;
-  }
-  .footer-logo {
-    margin: 0 auto !important;
+
+  /* 10. Buttons */
+  .btn-white, .nav-book {
+    padding: 1rem 1.6rem !important;
+    font-size: 1rem !important;
   }
 }
 </style>
@@ -563,6 +603,7 @@ footer{
 
 <!-- NAV -->
 <nav>
+  <button class="hamburger" id="hamburger">☰</button>
   <div class="nav-logo"><img src="images/agapaycl.jpg" alt="Agapay Clinical Laboratory"></div>  
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
@@ -1193,6 +1234,22 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  // Hamburger Menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+  });
+
+  // Close menu when clicking a link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      hamburger.textContent = '☰';
+    });
+  });
 </script>
 </body>
 </html>
