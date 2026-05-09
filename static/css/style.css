@@ -388,6 +388,7 @@ footer{
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:none;}
 .rd1{transition-delay:.07s;}.rd2{transition-delay:.14s;}.rd3{transition-delay:.21s;}.rd4{transition-delay:.28s;}.rd5{transition-delay:.35s;}
+
 /* ── MOBILE MENU BUTTON (Hidden on Desktop) ── */
 .mobile-menu-btn {
     display: none;
