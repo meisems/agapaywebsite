@@ -37,6 +37,7 @@ A modern, professional, and fully responsive single-page website for **Agapay Cl
 
 ## 📁 Project Structure
 
+```bash
 agapaywebsite/
 ├── index.html
 ├── css/
@@ -46,6 +47,7 @@ agapaywebsite/
 ├── images/
 ├── favicon_io/
 └── README.md
+```
 
 ## 🚀 Getting Started
 
