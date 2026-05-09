@@ -234,14 +234,16 @@ h2.sec-title em{font-style:italic;color:var(--green);}
 .test-nav {
   display: flex;
   width: 100%;
+  max-width: 1000px; 
+  margin: 0 auto 2rem auto; 
   border-bottom: 2px solid var(--green-pale);
-  margin-bottom: 2rem;
+  justify-content: center; 
 }
 
 .t-tab {
-  flex: 1; /* This forces them to share all available width */
+  flex: 1; 
   text-align: center;
-  padding: .7rem 0.5rem;
+  padding: 1rem 0;
   font-size: .8rem;
   font-weight: 500;
   color: var(--txt2);
@@ -251,7 +253,6 @@ h2.sec-title em{font-style:italic;color:var(--green);}
   border-bottom: 2px solid transparent;
   margin-bottom: -2px;
   transition: all .2s;
-  white-space: nowrap;
 }
 
 .t-tab.active {
