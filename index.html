@@ -403,29 +403,14 @@ footer{
 .team-heads { grid-template-columns: repeat(5, 1fr) !important; }
 .team-rest { grid-template-columns: repeat(4, 1fr) !important; }
 
-/* ── URGENT HERO MOBILE FIX - PUT THIS AT THE VERY BOTTOM ── */
+/* ── FORCE MOBILE FIX ── */
 @media (max-width: 768px) {
   .hero {
-    min-height: auto !important;
-    padding: 3.5rem 1rem 2.5rem !important;
-    flex-direction: column !important;
-    text-align: center !important;
+    padding: 3rem 1rem 2rem !important;
   }
-
+  
   .hero-right {
-    position: static !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-top: 2rem !important;
-  }
-
-  .hero-content {
-    max-width: 100% !important;
-  }
-
-  .hero-stats-box {
-    max-width: 100% !important;
-    margin: 0 auto !important;
+    margin-top: 1.5rem !important;
   }
 }
 
