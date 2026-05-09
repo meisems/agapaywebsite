@@ -80,71 +80,39 @@ nav{
   display:flex;
   flex-direction: column;
   align-items:center;
-  padding:4rem 1.2rem 3rem;
+  padding: 3.5rem 1rem 2.5rem;
   position:relative;
   overflow:hidden;
   text-align: center;
 }
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background-image:
-    radial-gradient(circle at 80% 20%,rgba(200,168,107,.15) 0%,transparent 40%),
-    radial-gradient(circle at 20% 80%,rgba(255,255,255,.04) 0%,transparent 40%);
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:100%;
 }
-.hero-pattern{
-  position:absolute;inset:0;opacity:.04;
-  background-image:
-    linear-gradient(rgba(255,255,255,.3) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.3) 1px,transparent 1px);
-  background-size:48px 48px;
-}
-.hero-content{position:relative;z-index:2;max-width:100%;}
-.hero-tagline{
-  display:inline-flex;align-items:center;gap:.5rem;
-  background:rgba(200,168,107,.2);border:1px solid rgba(200,168,107,.4);
-  border-radius:20px;padding:.3rem 1rem;
-  font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--gold-light);margin-bottom:1.6rem;
-}
-.tagdot{width:5px;height:5px;border-radius:50%;background:var(--gold-light);animation:blink 2s infinite;}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
 .hero h1{
-  font-family:'Cormorant Garant',serif;
-  font-size:clamp(2.4rem,8vw,4rem);font-weight:400;line-height:1.12;
-  color:var(--white);margin-bottom:1.2rem;
+  font-size: clamp(2.3rem, 7.5vw, 3.8rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
 }
-.hero h1 em{font-style:italic;color:var(--gold-light);}
 .hero p{
-  font-size:1.02rem;font-weight:300;color:rgba(255,255,255,.78);
-  max-width:480px;margin:0 auto 2.2rem;line-height:1.82;
+  margin: 0 auto 2rem;
+  max-width: 420px;
 }
-.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+.hero-ctas{
+  justify-content: center;
+}
 .hero-right{
-  position: static !important;
-  width: 100% !important;
-  max-width: 380px;
+  position: static;
+  width: 100%;
+  max-width: 360px;
   margin-top: 2rem;
 }
 .hero-stats-box{
-  background:rgba(255,255,255,.07);backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.12);border-radius:16px;
-  padding:2rem;width:100%;max-width:100%;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
 }
-.hero-stat-row{display:flex;justify-content:space-between;padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.08);}
-.hero-stat-row:last-child{border-bottom:none;}
-.hs-label{font-size:.78rem;color:rgba(255,255,255,.6);font-weight:300;}
-.hs-value{font-family:'Cormorant Garant',serif;font-size:1.5rem;font-weight:400;color:var(--white);}
-.hs-value em{font-style:normal;color:var(--gold-light);font-size:1rem;}
-.hero-motto{
-  margin-top:1.5rem;text-align:center;
-  font-family:'DM Mono',monospace;font-size:.68rem;
-  letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);
-}
-.hero-dots{display:flex;gap:.4rem;justify-content:center;margin-top:.6rem;}
-.hero-dots span{width:6px;height:6px;border-radius:50%;background:var(--gold-light);opacity:.4;}
-.hero-dots span:nth-child(2){opacity:.7;}
-.hero-dots span:nth-child(3){opacity:1;}
-
 /* ── TAGLINE STRIP ── */
 .tagstrip{
   background:var(--gold-pale);border-top:1px solid var(--gold-border);
@@ -435,68 +403,43 @@ footer{
 .team-heads { grid-template-columns: repeat(5, 1fr) !important; }
 .team-rest { grid-template-columns: repeat(4, 1fr) !important; }
 
-/* ── FINAL MOBILE REPAIR ── */
+/* ── CLEAN MOBILE LOOK LIKE HI-PRECISION ── */
 @media (max-width: 768px) {
-  section, nav, footer, .tagstrip {
-    padding: 2.5rem 1.2rem !important;
+  .hero {
+    padding: 3rem 1rem 2rem !important;
+  }
+  
+  .hero-right {
+    margin-top: 1.8rem !important;
   }
 
-  .topbar {
-    padding: .8rem 1rem !important;
-    flex-direction: column !important;
-    text-align: center;
+  nav {
+    padding: 1rem !important;
   }
 
-  /* Hamburger Menu */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    z-index: 999;
+    padding: 1rem 0;
+  }
+  
+  .nav-links.active {
+    display: flex !important;
+  }
+
   .hamburger {
     display: block !important;
     font-size: 1.8rem;
     background: none;
     border: none;
-    cursor: pointer;
     color: var(--green-dark);
-  }
-  .nav-links {
-    display: none !important;
-    flex-direction: column !important;
-    position: absolute !important;
-    top: 100% !important;
-    left: 0 !important;
-    right: 0 !important;
-    background: white !important;
-    box-shadow: var(--shadow-lg) !important;
-    padding: 1rem 0 !important;
-    z-index: 999 !important;
-  }
-  .nav-links.active {
-    display: flex !important;
-  }
-
-  .hero {
-    padding: 3.5rem 1rem 2.5rem !important;
-    min-height: auto !important;
-  }
-
-  .hero-right {
-    position: static !important;
-    width: 100% !important;
-    margin-top: 2rem !important;
-  }
-
-  .about-inner, .patient-inner, .why-grid, .contact-inner, .eqa-grid, 
-  .svc-grid, .team-leaders, .team-heads, .team-rest {
-    grid-template-columns: 1fr !important;
-  }
-
-  .accred-strip {
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-  }
-  .acc-sep { display: none !important; }
-
-  .footer-top {
-    grid-template-columns: 1fr !important;
-    text-align: center;
   }
 }
 </style>
