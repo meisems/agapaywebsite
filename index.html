@@ -441,101 +441,102 @@ footer{
 .team-heads { grid-template-columns: repeat(5, 1fr) !important; }
 .team-rest { grid-template-columns: repeat(4, 1fr) !important; }
 
-/* ── MOBILE RESPONSIVENESS (CLEANED UP) ── */
+/* ── FINAL MOBILE REPAIR ── */
 @media (max-width: 768px) {
-  /* 1. Global Spacing */
+  /* 1. Reset Spacing */
   section, nav, footer, .tagstrip {
-    padding: 3rem 1.2rem !important; /* Breathable margins */
+    padding: 2.5rem 1.2rem !important;
   }
 
-  /* 2. Hide Desktop Elements that clash */
-  .acc-sep, .topbar {
-    display: none !important; 
+  /* 2. Fix the Accreditation Strip (The part in your photo) */
+  .accred-strip {
+    flex-direction: column !important;
+    padding: 2rem 1.2rem !important;
+    gap: 2rem !important;
   }
-
-  /* 3. Hero & Nav Stacking */
-  nav {
-    flex-direction: column;
-    padding: 1rem !important;
+  .accred-list {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
   }
-  .nav-links { display: none; }
-  .hero {
-    padding: 4rem 1.2rem;
-    text-align: center;
-    min-height: auto;
+  .acc-sep {
+    display: none !important; /* Hides that vertical line from your photo */
   }
-  .hero-right {
-    position: static;
+  .acc-item {
+    text-align: center !important;
     width: 100%;
-    margin-top: 2rem;
   }
 
-  /* 4. Quality Policy & About Section */
-  .about-inner, .patient-inner, .why-grid, .contact-inner {
-    grid-template-columns: 1fr !important;
-    gap: 2.5rem !important;
+  /* 3. Fix Quality Policy / About Section */
+  .about-inner, .patient-inner, .why-grid, .contact-inner, .eqa-grid {
+    grid-template-columns: 1fr !important; /* Forces everything to stack */
+    gap: 2rem !important;
   }
   .qp-header {
-    flex-direction: column; /* Stacks the logo and title */
+    flex-direction: column !important;
     align-items: center;
     text-align: center;
   }
 
-  /* 5. Team Section (Clean 2-column Grid) */
+  /* 4. Team Section: 1 Column for maximum clarity */
   .team-leaders, .team-heads, .team-rest {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1rem !important;
-    justify-content: start !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
   }
   .tcard {
     width: 100% !important;
-  }
-  .tinfo h4 { font-size: 0.75rem; } /* Shrink text slightly for mobile */
-
-  /* 6. Accreditation Strip (The "Messy" Part) */
-  .accred-strip {
-    padding: 2rem 1rem !important;
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-  }
-  .accred-list {
-    flex-direction: column !important;
-    gap: 1rem !important;
-  }
-  .acc-item {
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 0.5rem;
-    width: 100%;
+    max-width: 320px;
+    margin: 0 auto; /* Centers the cards in the middle of the phone */
   }
 
-  /* 7. Tabs Menu (Swipeable) */
+  /* 5. Navigation & Hero Fix */
+  nav {
+    flex-direction: column !important;
+    padding: 1rem !important;
+  }
+  .nav-links, .topbar {
+    display: none !important; /* Hide clutter on mobile */
+  }
+  .hero {
+    padding: 4rem 1.2rem !important;
+    text-align: center;
+    min-height: auto;
+  }
+  .hero-right {
+    position: static !important;
+    width: 100% !important;
+    margin-top: 2rem;
+  }
+
+  /* 6. Tabs Menu (Horizontal Swipe) */
   .test-nav {
     display: flex !important;
     overflow-x: auto !important;
     justify-content: flex-start !important;
-    white-space: nowrap;
     padding-bottom: 10px;
+    border-bottom: 1px solid var(--bdr);
+    -webkit-overflow-scrolling: touch;
   }
   .t-tab {
     flex: 0 0 auto !important;
-    padding: 0.7rem 1rem !important;
+    padding: 0.8rem 1.2rem !important;
   }
 
-  /* 8. Service & EQA Grids */
-  .svc-grid, .eqa-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* 9. Footer */
+  /* 7. Footer Fix */
   .footer-top {
     grid-template-columns: 1fr !important;
     text-align: center;
+    gap: 2.5rem !important;
   }
-  .footer-brand p { margin: 0 auto; }
+  .footer-brand p {
+    margin: 0 auto;
+  }
   .footer-bottom {
-    flex-direction: column;
+    flex-direction: column !important;
     text-align: center;
-    gap: 1rem;
+    gap: 1.2rem;
+  }
+  .footer-logo {
+    margin: 0 auto !important;
   }
 }
 </style>
