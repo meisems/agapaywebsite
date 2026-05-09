@@ -76,8 +76,14 @@ nav{
 /* ── HERO ── */
 .hero{
   background:linear-gradient(135deg,var(--green-dark) 0%,#1A6B3E 50%,#0D4A26 100%);
-  min-height:88vh;display:flex;align-items:center;
-  padding:5rem 4rem;position:relative;overflow:hidden;
+  min-height: auto;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  padding:4rem 1.2rem 3rem;
+  position:relative;
+  overflow:hidden;
+  text-align: center;
 }
 .hero::before{
   content:'';position:absolute;inset:0;
@@ -92,7 +98,7 @@ nav{
     linear-gradient(90deg,rgba(255,255,255,.3) 1px,transparent 1px);
   background-size:48px 48px;
 }
-.hero-content{position:relative;z-index:2;max-width:600px;}
+.hero-content{position:relative;z-index:2;max-width:100%;}
 .hero-tagline{
   display:inline-flex;align-items:center;gap:.5rem;
   background:rgba(200,168,107,.2);border:1px solid rgba(200,168,107,.4);
@@ -104,37 +110,25 @@ nav{
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
 .hero h1{
   font-family:'Cormorant Garant',serif;
-  font-size:clamp(2.8rem,5vw,4.5rem);font-weight:400;line-height:1.08;
-  color:var(--white);margin-bottom:1.3rem;
+  font-size:clamp(2.4rem,8vw,4rem);font-weight:400;line-height:1.12;
+  color:var(--white);margin-bottom:1.2rem;
 }
 .hero h1 em{font-style:italic;color:var(--gold-light);}
 .hero p{
   font-size:1.02rem;font-weight:300;color:rgba(255,255,255,.78);
-  max-width:480px;margin-bottom:2.2rem;line-height:1.82;
+  max-width:480px;margin:0 auto 2.2rem;line-height:1.82;
 }
-.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;}
-.btn-white{
-  background:var(--white);color:var(--green-dark);
-  font-size:.84rem;font-weight:600;letter-spacing:.03em;
-  padding:.8rem 1.8rem;border-radius:6px;text-decoration:none;
-  transition:all .2s;box-shadow:0 4px 16px rgba(0,0,0,.15);
-}
-.btn-white:hover{background:var(--gold-pale);transform:translateY(-1px);}
-.btn-outline-white{
-  border:1.5px solid rgba(255,255,255,.5);color:var(--white);
-  font-size:.84rem;font-weight:500;padding:.8rem 1.8rem;
-  border-radius:6px;text-decoration:none;transition:all .2s;
-}
-.btn-outline-white:hover{background:rgba(255,255,255,.1);}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
 .hero-right{
-  position:absolute;right:0;top:0;bottom:0;width:42%;
-  display:flex;align-items:center;justify-content:center;
-  padding:2rem;
+  position: static !important;
+  width: 100% !important;
+  max-width: 380px;
+  margin-top: 2rem;
 }
 .hero-stats-box{
   background:rgba(255,255,255,.07);backdrop-filter:blur(12px);
   border:1px solid rgba(255,255,255,.12);border-radius:16px;
-  padding:2rem;width:100%;max-width:340px;
+  padding:2rem;width:100%;max-width:100%;
 }
 .hero-stat-row{display:flex;justify-content:space-between;padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.08);}
 .hero-stat-row:last-child{border-bottom:none;}
@@ -443,100 +437,66 @@ footer{
 
 /* ── FINAL MOBILE REPAIR ── */
 @media (max-width: 768px) {
-  /* 1. Reset Spacing */
   section, nav, footer, .tagstrip {
     padding: 2.5rem 1.2rem !important;
   }
 
-  /* 2. Fix the Accreditation Strip (The part in your photo) */
-  .accred-strip {
+  .topbar {
+    padding: .8rem 1rem !important;
     flex-direction: column !important;
-    padding: 2rem 1.2rem !important;
-    gap: 2rem !important;
-  }
-  .accred-list {
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-  }
-  .acc-sep {
-    display: none !important; /* Hides that vertical line from your photo */
-  }
-  .acc-item {
-    text-align: center !important;
-    width: 100%;
-  }
-
-  /* 3. Fix Quality Policy / About Section */
-  .about-inner, .patient-inner, .why-grid, .contact-inner, .eqa-grid {
-    grid-template-columns: 1fr !important; /* Forces everything to stack */
-    gap: 2rem !important;
-  }
-  .qp-header {
-    flex-direction: column !important;
-    align-items: center;
     text-align: center;
   }
 
-  /* 4. Team Section: 1 Column for maximum clarity */
-  .team-leaders, .team-heads, .team-rest {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
+  /* Hamburger Menu */
+  .hamburger {
+    display: block !important;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--green-dark);
   }
-  .tcard {
-    width: 100% !important;
-    max-width: 320px;
-    margin: 0 auto; /* Centers the cards in the middle of the phone */
+  .nav-links {
+    display: none !important;
+    flex-direction: column !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: white !important;
+    box-shadow: var(--shadow-lg) !important;
+    padding: 1rem 0 !important;
+    z-index: 999 !important;
+  }
+  .nav-links.active {
+    display: flex !important;
   }
 
-  /* 5. Navigation & Hero Fix */
-  nav {
-    flex-direction: column !important;
-    padding: 1rem !important;
-  }
-  .nav-links, .topbar {
-    display: none !important; /* Hide clutter on mobile */
-  }
   .hero {
-    padding: 4rem 1.2rem !important;
-    text-align: center;
-    min-height: auto;
+    padding: 3.5rem 1rem 2.5rem !important;
+    min-height: auto !important;
   }
+
   .hero-right {
     position: static !important;
     width: 100% !important;
-    margin-top: 2rem;
+    margin-top: 2rem !important;
   }
 
-  /* 6. Tabs Menu (Horizontal Swipe) */
-  .test-nav {
-    display: flex !important;
-    overflow-x: auto !important;
-    justify-content: flex-start !important;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--bdr);
-    -webkit-overflow-scrolling: touch;
-  }
-  .t-tab {
-    flex: 0 0 auto !important;
-    padding: 0.8rem 1.2rem !important;
+  .about-inner, .patient-inner, .why-grid, .contact-inner, .eqa-grid, 
+  .svc-grid, .team-leaders, .team-heads, .team-rest {
+    grid-template-columns: 1fr !important;
   }
 
-  /* 7. Footer Fix */
+  .accred-strip {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+  .acc-sep { display: none !important; }
+
   .footer-top {
     grid-template-columns: 1fr !important;
     text-align: center;
-    gap: 2.5rem !important;
-  }
-  .footer-brand p {
-    margin: 0 auto;
-  }
-  .footer-bottom {
-    flex-direction: column !important;
-    text-align: center;
-    gap: 1.2rem;
-  }
-  .footer-logo {
-    margin: 0 auto !important;
   }
 }
 </style>
@@ -564,6 +524,7 @@ footer{
 <!-- NAV -->
 <nav>
   <div class="nav-logo"><img src="images/agapaycl.jpg" alt="Agapay Clinical Laboratory"></div>  
+  <button class="hamburger" id="hamburger">☰</button>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#tests">Test Menu</a></li>
@@ -1193,6 +1154,14 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  // Hamburger Menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+});
 </script>
 </body>
 </html>
