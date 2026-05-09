@@ -396,6 +396,13 @@ footer{
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:none;}
 .rd1{transition-delay:.07s;}.rd2{transition-delay:.14s;}.rd3{transition-delay:.21s;}.rd4{transition-delay:.28s;}.rd5{transition-delay:.35s;}
+
+.tphoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit; /* This makes the image copy the roundness of your .tphoto div */
+}
 </style>
 </head>
 <body>
@@ -792,7 +799,7 @@ footer{
   <p class="team-section-lbl reveal">Leadership</p>
 <div class="team-leaders reveal">
   <div class="tcard leader">
-    <div class="tphoto"><img src="https://i.pravatar.cc/300?img=32" alt="Dr. Goto"></div>
+    <div class="tphoto"><img src="goto.jfif" alt="Dr. Goto"></div>
     <div class="tinfo"><h4>Elissa Mariko C. Goto, MD, FPSP</h4><p>Medical Director / Owner</p></div>
   </div>
   <div class="tcard leader">
