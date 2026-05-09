@@ -443,26 +443,34 @@ footer{
 
 /* ── IMPROVED MOBILE RESPONSIVENESS ── */
 @media (max-width: 768px) {
-  /* 1. General Spacing */
+  /* General */
   section, nav, .tagstrip, footer {
-    padding: 2.5rem 1.2rem !important;
+    padding: 2.8rem 1.2rem !important;
   }
 
-  /* 2. Top Bar */
+  /* Top Bar */
   .topbar {
-    padding: .6rem 1rem !important;
-    flex-direction: column;
-    gap: 0.6rem;
+    padding: .8rem 1rem !important;
+    flex-direction: column !important;
+    gap: 0.8rem;
     text-align: center;
   }
   .tb-left {
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.7rem;
   }
 
-  /* 3. Navigation - Add Hamburger Menu */
+  /* Navigation */
   nav {
     padding: 1rem !important;
+  }
+  .hamburger {
+    display: block !important;
+    font-size: 1.9rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--green-dark);
   }
   .nav-links {
     display: none !important;
@@ -472,7 +480,7 @@ footer{
     left: 0;
     right: 0;
     background: white;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-lg);
     padding: 1rem 0;
     z-index: 999;
   }
@@ -480,31 +488,19 @@ footer{
     display: flex !important;
   }
   .nav-links a {
-    padding: 0.9rem 1.5rem;
-    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.05rem;
   }
 
-  /* Hamburger Button */
-  .hamburger {
-    display: block !important;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: var(--green-dark);
-  }
-
-  /* 4. Hero */
+  /* Hero */
   .hero {
-    min-height: 70vh !important;
+    min-height: 75vh !important;
     padding: 4rem 1.2rem 3rem !important;
     text-align: center;
   }
-  .hero-content {
-    max-width: 100% !important;
-  }
   .hero h1 {
-    font-size: 2.6rem !important;
+    font-size: 2.65rem !important;
+    line-height: 1.1 !important;
   }
   .hero-right {
     position: static !important;
@@ -515,68 +511,54 @@ footer{
     max-width: 100% !important;
   }
 
-  /* 5. Grids → Stack */
+  /* Grids Stack */
   .svc-grid,
   .why-grid,
   .about-inner,
   .patient-inner,
   .contact-inner,
-  .eqa-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-  }
-
-  /* 6. Team Section */
+  .eqa-grid,
   .team-leaders,
   .team-heads,
   .team-rest {
     grid-template-columns: 1fr !important;
-    gap: 1.2rem !important;
-  }
-  .tcard {
-    max-width: 100% !important;
-    margin: 0 auto;
+    gap: 1.5rem !important;
   }
 
-  /* 7. Test Menu Tabs */
+  /* Test Tabs */
   .test-nav {
     overflow-x: auto !important;
     flex-wrap: nowrap !important;
-    padding-bottom: 12px;
-    -webkit-overflow-scrolling: touch;
+    padding-bottom: 15px;
   }
   .t-tab {
     flex: 0 0 auto !important;
-    padding: 0.8rem 1.1rem !important;
-    font-size: 0.82rem !important;
-    white-space: nowrap;
+    padding: 0.9rem 1.2rem !important;
   }
 
-  /* 8. Accreditation Strip */
+  /* Accreditation */
   .accred-strip {
     flex-direction: column !important;
-    gap: 1.8rem !important;
     padding: 2rem 1rem !important;
+    gap: 2rem !important;
   }
   .accred-list {
     flex-direction: column !important;
-    gap: 1.2rem !important;
+    gap: 1.5rem !important;
   }
-  .acc-sep {
-    display: none !important;
-  }
+  .acc-sep { display: none !important; }
 
-  /* 9. Footer */
+  /* Footer */
   .footer-top {
     grid-template-columns: 1fr !important;
     text-align: center;
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
-  /* 10. Buttons */
   .btn-white, .nav-book {
-    padding: 1rem 1.6rem !important;
-    font-size: 1rem !important;
+    width: 100%;
+    text-align: center;
+    padding: 1.1rem 1.6rem !important;
   }
 }
 </style>
@@ -603,8 +585,8 @@ footer{
 
 <!-- NAV -->
 <nav>
-  <button class="hamburger" id="hamburger">☰</button>
   <div class="nav-logo"><img src="images/agapaycl.jpg" alt="Agapay Clinical Laboratory"></div>  
+  <button class="hamburger" id="hamburger">☰</button>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#tests">Test Menu</a></li>
@@ -1235,21 +1217,21 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   // Hamburger Menu
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.querySelector('.nav-links');
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
 
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-  });
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+});
 
-  // Close menu when clicking a link
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-      hamburger.textContent = '☰';
-    });
+// Close menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    hamburger.textContent = '☰';
   });
+});
 </script>
 </body>
 </html>
