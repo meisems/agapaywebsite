@@ -78,40 +78,31 @@ nav{
   background:linear-gradient(135deg,var(--green-dark) 0%,#1A6B3E 50%,#0D4A26 100%);
   min-height: auto;
   display:flex;
-  flex-direction: column;
+  flex-direction:column;
   align-items:center;
-  padding: 3.5rem 1rem 2.5rem;
+  padding:3.5rem 1rem 2.5rem;
   position:relative;
   overflow:hidden;
-  text-align: center;
+  text-align:center;
 }
 .hero-content{
   position:relative;
   z-index:2;
   max-width:100%;
 }
-.hero h1{
-  font-size: clamp(2.3rem, 7.5vw, 3.8rem);
-  line-height: 1.15;
-  margin-bottom: 1rem;
-}
-.hero p{
-  margin: 0 auto 2rem;
-  max-width: 420px;
-}
-.hero-ctas{
-  justify-content: center;
-}
 .hero-right{
-  position: static;
-  width: 100%;
-  max-width: 360px;
-  margin-top: 2rem;
+  position:static;
+  width:100%;
+  max-width:380px;
+  margin-top:2rem;
 }
 .hero-stats-box{
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
+  width:100%;
+  max-width:100%;
+}
+.hero h1{
+  font-size:clamp(2.3rem,7.5vw,4rem);
+  line-height:1.15;
 }
 /* ── TAGLINE STRIP ── */
 .tagstrip{
@@ -403,12 +394,11 @@ footer{
 .team-heads { grid-template-columns: repeat(5, 1fr) !important; }
 .team-rest { grid-template-columns: repeat(4, 1fr) !important; }
 
-/* ── FORCE MOBILE FIX ── */
+/* ── STRONGEST MOBILE OVERRIDE ── */
 @media (max-width: 768px) {
   .hero {
     padding: 3rem 1rem 2rem !important;
   }
-  
   .hero-right {
     margin-top: 1.5rem !important;
   }
