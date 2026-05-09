@@ -36,13 +36,16 @@ A modern, professional, and fully responsive single-page website for **Agapay Cl
 - **Google Fonts** (Cormorant Garant, Plus Jakarta Sans, DM Mono)
 
 ## 📁 Project Structure
-agapaywebsite/
-├── css/            # Style sheets for layout and design
-├── js/             # Script files for interactivity
-├── images/         # Graphical assets and UI elements
-├── favicon_io/     # Website icon assets
-└── index.html      # Main entry point of the website
 
+agapaywebsite/
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── main.js
+├── images/
+├── favicon_io/
+└── README.md
 
 ## 🚀 Getting Started
 
